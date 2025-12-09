@@ -9,12 +9,15 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner (System.in);
 
-        System.out.println("Enter the name of the products: ");
-        String name = sc.nextLine();
-        System.out.println("Enter the price of the products: ");
-        double price = sc.nextDouble();
-        System.out.println("Enter the quantity in stock: ");
-        int quantity = sc.nextInt();
+        Product product = new Product();
+
+        System.out.println("Enter product data: ");
+        System.out.print("Name: ");
+        product.name = sc.nextLine();
+        System.out.print("Price: ");
+        product.price = sc.nextDouble();
+        System.out.print("Quantity in stock: ");
+        product.quantity = sc.nextInt();
 
         System.out.println("----MENU----");
         System.out.println("1. Add Products");
@@ -27,15 +30,25 @@ public class Main {
         switch (op) {
             case 1:
                 System.out.println("Enter the number of products to be added in stock: ");
-                int addQuantity = sc.nextInt();
+                int quantity = sc.nextInt();
                 break;
             case 2:
                 System.out.println("Enter the number of products to be removed from stock: ");
-                int removeQuantity = sc.nextInt();
+                quantity = sc.nextInt();
                 break;
             case 3:
-                System.out.println("Updated data: %s, $ %f, %d units, Total: %f",name,price,quantity,totalValueInStock);
+                System.out.println(product.toString());
+                break;
+            case 4:
+                System.out.println("Exit...");
+                break;
+            default:
+                System.out.println("Error");
+                break;
+
 
         }
+
+        sc.close();
     }
 }
