@@ -19,36 +19,44 @@ public class Main {
         System.out.print("Quantity in stock: ");
         product.quantity = sc.nextInt();
 
-        System.out.println("----MENU----");
-        System.out.println("1. Add Products");
-        System.out.println("2. Remove Products");
-        System.out.println("3. Look up Products");
-        System.out.println("4. Exit the program");
-        System.out.println("Choose one option: ");
-        int op = sc.nextInt();
+        int op;
+        int quantity;
 
-        switch (op) {
-            case 1:
-                System.out.println("Enter the number of products to be added in stock: ");
-                int quantity = sc.nextInt();
-                break;
-            case 2:
-                System.out.println("Enter the number of products to be removed from stock: ");
-                quantity = sc.nextInt();
-                break;
-            case 3:
-                System.out.println(product.toString());
-                break;
-            case 4:
-                System.out.println("Exit...");
-                break;
-            default:
-                System.out.println("Error");
-                break;
+        do {
+            System.out.println("----MENU----");
+            System.out.println("1. Add Products");
+            System.out.println("2. Remove Products");
+            System.out.println("3. Look up Products");
+            System.out.println("4. Exit the program");
+            System.out.print("Choose one option: ");
+            op = sc.nextInt();
 
-
-        }
-
+            switch (op) {
+                case 1:
+                    System.out.print("Enter the number of products to be added in stock: ");
+                    quantity = sc.nextInt();
+                    product.addProducts(quantity);
+                    System.out.println("Product " + product.toString());
+                    System.out.println();
+                    break;
+                case 2:
+                    System.out.print("Enter the number of products to be removed from stock: ");
+                    quantity = sc.nextInt();
+                    product.removeProducts(quantity);
+                    System.out.println("Product " + product.toString());
+                    System.out.println();
+                    break;
+                case 3:
+                    System.out.println("Product " + product.toString());
+                    break;
+                case 4:
+                    System.out.println("Exit...");
+                    break;
+                default:
+                    System.out.println("Error");
+                    break;
+            }
+        } while (op != 4);
         sc.close();
     }
 }
