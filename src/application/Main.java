@@ -9,21 +9,20 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner (System.in);
 
-        Product product = new Product();
 
         System.out.println("Enter product data: ");
         System.out.print("Name: ");
-        product.name = sc.nextLine();
+        String name = sc.nextLine();
         System.out.print("Price: ");
-        product.price = sc.nextDouble();
+        double price = sc.nextDouble();
         System.out.print("Quantity in stock: ");
-        product.quantity = sc.nextInt();
+        int quantity = sc.nextInt();
+        Product product = new Product(name, price, quantity);
 
         int op;
-        int quantity;
 
         do {
-            System.out.println("----MENU----");
+            System.out.println("\n----MENU----");
             System.out.println("1. Add Products");
             System.out.println("2. Remove Products");
             System.out.println("3. Look up Products");
